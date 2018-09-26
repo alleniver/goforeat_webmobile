@@ -159,7 +159,7 @@ export default class HomePage extends PureComponent {
   _renderSidebarView() {
     let _drawerList = [
       {name: '我的訂單', icon:(<img className="sidebar-icon" src={require('@/assets/order.png')}/>), path: '/myorder'}, 
-      {name: '支付方式',icon:(<img className="sidebar-icon" src={require('@/assets/payment.png')}/>), path: '/myorder'},
+      {name: '支付方式',icon:(<img className="sidebar-icon" src={require('@/assets/payment.png')}/>), path: '/makePayment'},
       {name: '系統設置',icon: (<img className="sidebar-icon" src={require('@/assets/setting.png')}/>), path: '/myorder'}
     ];
     return (

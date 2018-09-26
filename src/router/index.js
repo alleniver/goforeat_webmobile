@@ -9,6 +9,8 @@ const home = asyncComponent(() => import("@/pages/homepage/HomePage"));
 const login = asyncComponent(() => import("@/pages/loginpage/LoginPage"));
 const myorder = asyncComponent(() => import("@/pages/myOrder/MyOrderPage"));
 const content = asyncComponent(() => import("@/pages/contentpage/ContentPage"));
+const makePayment = asyncComponent(() => import("@/pages/makePayment/makePaymentPage"));
+
 //styles
 
 
@@ -30,6 +32,7 @@ export default class routeConfig extends Component {
                 <Route path="/" exact component={home}/>
                 <Route path="/login" component={login} />
                 <Route path="/content" component={content}/>
+                <Route path="/makePayment" component={makePayment}/>
                 <Route path="/myorder" component={myorder} onEnter={AUTH()}/>
               </Switch>
             </CSSTransition>
