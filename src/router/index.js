@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { HashRouter,Switch,Route,BrowserRouter } from 'react-router-dom';
+import { Switch,Route,BrowserRouter,Redirect } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import asyncComponent from './asyncComponent';
+//styles
+import '@/styles/transition.less';
 //utils
 import { isAuth } from '@/utils/auth';
 //views
@@ -14,8 +16,13 @@ const makePayment = asyncComponent(() => import("@/pages/makePayment/makePayment
 //styles
 
 
-const AUTH = (nextState, replace, callback) => {
-  console.log(nextState, replace, callback);
+function PrivateRoute({component: Component, ...rest}) {
+  return (
+    <Route 
+      {...rest}
+      render={props => isAuth() ? <Component /> : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+    />
+  )
 }
 
 export default class routeConfig extends Component {
@@ -32,14 +39,17 @@ export default class routeConfig extends Component {
                 <Route path="/" exact component={home}/>
                 <Route path="/login" component={login} />
                 <Route path="/content" component={content}/>
+<<<<<<< HEAD
                 <Route path="/makePayment" component={makePayment}/>
                 <Route path="/myorder" component={myorder} onEnter={AUTH()}/>
+=======
+                <PrivateRoute path="/myorder" component={myorder}/>
+>>>>>>> 46f5e085ca9390ff84db13bb26422e16eafd3fe8
               </Switch>
             </CSSTransition>
           </TransitionGroup>
           )
         }/>
-        
       </BrowserRouter>
     )
   }
