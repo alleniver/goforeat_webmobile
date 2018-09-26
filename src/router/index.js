@@ -40,7 +40,7 @@ export default class routeConfig extends Component {
                 <Route path="/login" component={login} />
                 <Route path="/content" component={content}/>
                 <Route path="/makePayment" component={makePayment}/>
-                <Route path="/myorder" component={myorder} onEnter={AUTH()}/>
+                <Route path="/myorder" component={props => PrivateRoute(myorder, props)}/>
               </Switch>
             </CSSTransition>
           </TransitionGroup>
