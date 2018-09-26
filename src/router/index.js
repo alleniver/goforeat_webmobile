@@ -39,12 +39,8 @@ export default class routeConfig extends Component {
                 <Route path="/" exact component={home}/>
                 <Route path="/login" component={login} />
                 <Route path="/content" component={content}/>
-<<<<<<< HEAD
                 <Route path="/makePayment" component={makePayment}/>
                 <Route path="/myorder" component={myorder} onEnter={AUTH()}/>
-=======
-                <PrivateRoute path="/myorder" component={myorder}/>
->>>>>>> 46f5e085ca9390ff84db13bb26422e16eafd3fe8
               </Switch>
             </CSSTransition>
           </TransitionGroup>
